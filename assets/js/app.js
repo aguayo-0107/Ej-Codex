@@ -17,3 +17,30 @@ if (document.getElementById('kpi-total')) {
 }
 window.booksStore = booksStore;
 window.badgeForStatus = badgeForStatus;
+
+
+const applyTheme = (theme) => {
+  document.documentElement.setAttribute('data-bs-theme', theme);
+  const btn = document.getElementById('theme-toggle');
+  if (btn) {
+    const isDark = theme === 'dark';
+    btn.textContent = isDark ? '☀️ Modo claro' : '🌙 Modo oscuro';
+    btn.classList.toggle('btn-outline-light', isDark);
+    btn.classList.toggle('btn-outline-secondary', !isDark);
+  }
+};
+
+const initThemeToggle = () => {
+  const saved = localStorage.getItem('theme') || 'light';
+  applyTheme(saved);
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-bs-theme') || 'light';
+    const next = current === 'light' ? 'dark' : 'light';
+    localStorage.setItem('theme', next);
+    applyTheme(next);
+  });
+};
+
+initThemeToggle();
