@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biblioteca | Inicio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="index.html">Biblioteca</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto gap-lg-2">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="books.html">Libros</a></li>
+          <li class="nav-item"><a class="nav-link" href="manage.html">Gestión</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+    <section class="hero-section text-center py-5">
+      <h1 class="display-6 fw-bold mb-3">Gestiona tu biblioteca de forma simple</h1>
+      <p class="text-secondary mb-4">Explora, organiza y administra tus libros con una interfaz limpia y rápida.</p>
+      <div class="d-flex justify-content-center gap-2 flex-wrap">
+        <a class="btn btn-primary px-4" href="books.html">Ver catálogo</a>
+        <a class="btn btn-outline-primary px-4" href="manage.html">Gestionar libros</a>
+      </div>
+    </section>
+
+    <section class="row g-3 mb-5">
+      <div class="col-md-4"><div class="card card-clean p-3"><p class="muted-label mb-1">Total libros</p><h3 id="kpi-total" class="mb-0">0</h3></div></div>
+      <div class="col-md-4"><div class="card card-clean p-3"><p class="muted-label mb-1">Disponibles</p><h3 id="kpi-available" class="mb-0">0</h3></div></div>
+      <div class="col-md-4"><div class="card card-clean p-3"><p class="muted-label mb-1">Inactivos</p><h3 id="kpi-inactive" class="mb-0">0</h3></div></div>
+    </section>
+
+    <section>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h4 mb-0">Últimos añadidos</h2>
+        <a href="books.html" class="link-offset-2">Ver todos</a>
+      </div>
+      <div id="latest-books-grid" class="row g-3"></div>
+    </section>
+  </main>
+
+  <footer class="border-top py-4 text-center text-secondary small">
+    © <span id="footer-year"></span> Biblioteca.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
