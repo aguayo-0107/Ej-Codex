@@ -31,8 +31,9 @@ const applyTheme = (theme) => {
 };
 
 const initThemeToggle = () => {
-  const saved = localStorage.getItem('theme') || 'light';
-  applyTheme(saved);
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(saved || (prefersDark ? 'dark' : 'light'));
   const btn = document.getElementById('theme-toggle');
   if (!btn) return;
   btn.addEventListener('click', () => {
