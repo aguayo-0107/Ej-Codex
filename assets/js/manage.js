@@ -46,8 +46,10 @@
     const item = state.data.find((b) => b.id === id);
     try {
       if (btn.dataset.action === 'edit') {
-        state.editId = id; fields.title.value = item.title; fields.author.value = item.author; fields.publication_date.value = item.publication_date;
+        state.editId = id; fields.id.value = id; fields.title.value = item.title; fields.author.value = item.author; fields.publication_date.value = item.publication_date;
         fields.image_url.value = item.image_url || ''; fields.quantity.value = item.quantity; fields.is_borrowed.value = String(item.is_borrowed);
+        document.getElementById('form-title').textContent = `Editar libro #${id}`;
+        document.getElementById('manage-submit-btn').textContent = 'Actualizar';
       } else if (btn.dataset.action === 'toggle') await window.booksApi.changeStatus(id, !item.is_borrowed);
       else if (btn.dataset.action === 'delete') await window.booksApi.deleteBook(id);
       await loadData();
